@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <h1 id="headerElement">Hello World! index 20</h1>
+    <button id="changeColorBtn">Change Color</button>
+    <script>
+        var btn = document.getElementById("changeColorBtn");
+        var colorArray = ["red", "pink", "brown", "orange", "blue", "green", "purple", "cyan", "indigo", "white"];
+
+        btn.addEventListener("click", function () {
+            var rendom = Math.random();
+            var mulRendom = rendom * 10;
+            var result = Math.floor(mulRendom);
+            var el = document.getElementById("headerElement");
+            el.style.color = colorArray[result];
+        });
+    </script>
+</body>
+
+</html>

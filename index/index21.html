@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <h1>Hello World! index 21</h1>
+    <input id="inputFieldFirstName" placeholder="First Name" type="text">
+    <input id="inputFieldLastName" placeholder="First Name" type="text">
+    <button id="sumbit">Submit</button>
+    <h2 id="displayFullName"></h2>
+    <script>
+        var firstNameEl = document.getElementById("inputFieldFirstName");
+        var lastNameEl = document.getElementById("inputFieldLastName");
+        var fullNameEl = document.getElementById("displayFullName");
+        var btn = document.getElementById("sumbit");
+        btn.addEventListener("click", function () {
+            console.log(firstNameEl.value, lastNameEl.value);
+            var fullName = firstNameEl.value + " " + lastNameEl.value;
+            fullNameEl.innerText = fullName;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To Do App</title>
+</head>
+
+<body>
+    <!-- <h1>Hello World! index 28</h1> -->
+    <input id="inputField" placeholder="To Dos">
+    <button id="submitButton">Submit</button>
+    <div id="toDoContainer">
+
+    </div>
+    <script>
+
+
+        var todos = [];
+        var todosEl = document.getElementById("toDoContainer");
+        var inputEl = document.getElementById("inputField");
+        var submitBtnEl = document.getElementById("submitButton");
+        submitBtnEl.addEventListener("click", function () {
+            var inputValue = inputEl.value;
+
+            if (inputValue) {
+                todos.push(inputValue);
+                inputEl.value = "";
+                todosEl.innerHTML = "";
+                todos.reverse();
+                for (var i = 0; i < todos.length; i++) {
+                    var displayText = (i + 1) + ". " + todos[i];
+                    var textNode = document.createTextNode(displayText);
+                    var pEl = document.createElement("p");
+                    pEl.appendChild(textNode);
+                    todosEl.appendChild(pEl);
+                }
+            }else{
+                alert("Please enter something.");
+            }
+
+        });
+
+
+    </script>
+</body>
+
+</html>

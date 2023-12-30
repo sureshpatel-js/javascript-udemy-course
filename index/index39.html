@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <h1>Hello World! index 39</h1>
+    <div id="usersContainer">
+
+    </div>
+    <script>
+        var usersEl = document.getElementById("usersContainer");
+        fetch("http://localhost:3000/users")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+
+                console.log(data);
+
+
+                //console.log(data); i++   =  i=i+1
+                // ["suresh", "tome", "jerry"]
+                // [{}, {}, {}]
+                // for (var i = 0; i < data.length; i = i + 1) {
+                //     var elOne = data[i];
+                //     //var displayText = "NAME: " + elOne.name + " " + "EMAIL: " + elOne.email;
+                //     var displayText = `NAME ${elOne.name} EMAIL ${elOne.email}`;
+                //     // var pEl = "<p>" + displayText + "</p>";
+                //     var pEl = `<p> ${displayText}</p>`;    //""
+                //     usersEl.innerHTML = usersEl.innerHTML + pEl;
+
+                // }
+
+                // for (var i in data) {
+                //     var el = data[i];
+                //     var displayText = `NAME ${el.name} EMAIL ${el.email}`;
+                //     var pEl = `<p> ${displayText}</p>`;
+                //     usersEl.innerHTML = usersEl.innerHTML + pEl;
+                // }
+
+                for (var el of data) {
+                    var displayText = `NAME ${el.name} EMAIL ${el.email}`;
+                    var pEl = `<p> ${displayText}</p>`;
+                    usersEl.innerHTML = usersEl.innerHTML + pEl;
+                }
+
+
+            })
+            .catch(function (error) {
+                console.log("error=>", error);
+            }).finally(function () {
+                console.log("finally done");
+            });
+    </script>
+</body>
+
+</html>

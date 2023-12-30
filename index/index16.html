@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <h1>Hello World! index 16</h1>
+    <script>
+        function mathFunction(pNumOne, pAction, pNumTwo) {
+            var result;
+            if (pAction == "+") {
+                result = pNumOne + pNumTwo;
+            } else if (pAction == "-") {
+                result = pNumOne - pNumTwo;
+            } else if (pAction == "*") {
+                result = pNumOne * pNumTwo;
+            } else if (pAction == "/") {
+                result = pNumOne / pNumTwo;
+            }
+            return result;
+        }
+        var result = mathFunction(2, "*", 10);
+        console.log(result);
+    </script>
+</body>
+
+</html>

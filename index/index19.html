@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <h1 id="headerElement">Hello World! index 19</h1>
+    <button id="changeColorBtn">Change Color</button>
+    <script>
+        var btn = document.getElementById("changeColorBtn");
+        btn.addEventListener("click", function () {
+            var el = document.getElementById("headerElement");
+            el.style.color = "red";
+        });
+    </script>
+</body>
+
+</html>

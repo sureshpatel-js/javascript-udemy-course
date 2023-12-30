@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <h1>Hello World! index 38</h1>
+    <input id="inputField" placeholder="Enter USER ID">
+    <button id="submitButton">Submit</button>
+    <div id="usersContainer">
+
+    </div>
+    <script>
+        var btnEl = document.getElementById("submitButton");
+        var inputEl = document.getElementById("inputField");
+        var usersEl = document.getElementById("usersContainer");
+        btnEl.addEventListener("click", function () {
+            usersEl.innerHTML = "<h1>Loding...</h1>"
+            var userId = inputEl.value;
+            //API CALL
+            // var url = "https://jsonplaceholder.typicode.com/users/" + userId;
+            var url = `https://jsonplaceholder.typicode.com/users/${userId}`;
+            fetch(url)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    // console.log(data);
+                    var name = data.name;
+                    var email = data.email;
+                    var phone = data.phone;
+                    var addressObj = data.address;
+                    var suite = addressObj.suite;
+                    var street = addressObj.street;
+                    var city = addressObj.city;
+                    var zipcode = addressObj.zipcode;
+
+                    var userInnerHtml = `
+                <div style="border: 1px solid black;">
+                        <h2>${name}</h2>
+                        <p>${phone}</p>
+                        <p>${email}</p>
+                        <p>${suite}, ${street}, ${city}, ${zipcode}</p>
+                </div>
+                `
+                    usersEl.innerHTML = userInnerHtml;
+                })
+                .catch(function (error) {
+                    console.log("error=>", error);
+                }).finally(function () {
+                    console.log("finally done");
+                });
+            //
+            inputEl.value = "";
+        });
+
+
+    </script>
+</body>
+
+</html>
